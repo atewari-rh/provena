@@ -146,10 +146,11 @@ class TestReportText:
                     break
             if issues_idx is not None and issues_idx + 1 < len(lines):
                 # Next non-empty line should not start with "!"
-                for line in lines[issues_idx + 1:]:
+                for line in lines[issues_idx + 1 :]:
                     if line.strip():
-                        assert not line.strip().startswith("!"), \
+                        assert not line.strip().startswith("!"), (
                             "Should not have issue markers when all checks pass"
+                        )
                         break
         trail.close()
 
